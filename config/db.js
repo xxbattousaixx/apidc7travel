@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-  const config = require('config');
   const db = "mongodb+srv://dcarrassi:8701423@cluster0.7aqzmi1.mongodb.net/?retryWrites=true&w=majority";
   
   const connectDB = async () => {
