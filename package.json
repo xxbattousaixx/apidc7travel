@@ -1,8 +1,8 @@
 {
-  "name": "dc7travel",
+  "name": "apidc7travel",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/xxbattousaixx/dc7travel",
+  "repository": "https://github.com/xxbattousaixx/apidc7travel",
   "scripts": {
     "start": "node app.js",
     "app": "nodemon app.js",
