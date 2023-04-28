@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
   const connectDB = async () => {
     try {
       mongoose.set('strictQuery', true);
-      await mongoose.connect(db);
+      await mongoose.connect(db,{
+        useNewUrlParser: true,
+      });
   
       console.log('MongoDB is Connected...');
     } catch (err) {
