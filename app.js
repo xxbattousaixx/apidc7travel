@@ -11,7 +11,7 @@ const tripsRouter = require('./routes/api/trips');
 connectDB();
 app.use('/images', express.static('images'));
 // cors
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors());
 
 // Init Middleware
 app.use(express.json({ extended: false }));
