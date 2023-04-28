@@ -1,7 +1,7 @@
 
 {
     "mongoURI":
-    "mongodb+srv://AKIAVK7YFFF2BJGB3PKO:4B6qR45vhTr93heRzUxk%2FsjhyOgjxL0Ap2WRBc6y@cluster0.0sfkcnr.mongodb.net/?authSource=%24external&authMechanism=MONGODB-AWS&retryWrites=true"
+      "mongodb+srv://dcarrassi:<password>@cluster0.0sfkcnr.mongodb.net/?retryWrites=true&w=majority"
   }
   
   
