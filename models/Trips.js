@@ -1,0 +1,37 @@
+// models/Trip.js
+
+const mongoose = require('mongoose');
+
+const TripSchema = new mongoose.Schema({
+  location: {
+    type: String,
+  },
+  date: {
+    type: Date,
+  },
+  notes: {
+    type: String,
+  },
+  quality: {
+    type: Number,
+  },
+  value: {
+    type: Number,
+  },
+  departing: {
+    type: String
+  },
+  photo: {
+    type: String,
+
+  }, fileName: {
+    type: String,
+
+  },
+  updated_date: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+module.exports = Trip = mongoose.model('trip', TripSchema);

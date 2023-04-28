@@ -1,0 +1,30 @@
+{
+  "name": "dc7travel",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/xxbattousaixx/dc7travel",
+  "scripts": {
+    "start": "node app.js",
+    "app": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dc7",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cloudinary": "^1.36.2",
+    "config": "^3.3.9",
+    "cors": "^2.8.5",
+    "create-react-app": "^5.0.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^5.3.0",
+    "mongoose": "^7.0.5",
+    "multer": "^1.4.5-lts.1",
+    "path": "^0.12.7",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
