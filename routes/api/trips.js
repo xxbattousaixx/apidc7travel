@@ -38,6 +38,7 @@ let upload = multer({storage, fileFilter });
 
 router.route('/').post( upload.single('photo'),(req, res) => {
  const photo = req.body.photo;
+ const user = req.body.user;
  const location = req.body.location;
  const date = req.body.date;
  const notes = req.body.notes;
@@ -47,6 +48,7 @@ router.route('/').post( upload.single('photo'),(req, res) => {
  const fileName = req.file.filename
  const tripData = {
   photo,
+  user,
   location,
   date,
   notes,
@@ -94,7 +96,7 @@ router.get('/:id', (req, res) => {
 router.get('/', (req, res) => {
   Trip.find()
     .then(trips => res.json(trips))
-    .catch(err => res.status(404).json({ notripsfound: 'No Books found' }));
+    .catch(err => res.status(404).json({ notripsfound: 'No Trips found' }));
 });
 
 // @route GET api/trips/:id

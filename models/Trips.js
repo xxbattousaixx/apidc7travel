@@ -6,6 +6,9 @@ const TripSchema = new mongoose.Schema({
   location: {
     type: String,
   },
+  user: {
+    type: String,
+  },
   date: {
     type: Date,
   },
