@@ -36,8 +36,8 @@ let upload = multer({storage, fileFilter });
 // routes/api/trips.js
 
 
-router.route('/').post( (req, res) => {
- const photo = upload.single('photo');
+router.route('/').post( upload.single('photo'),(req, res) => {
+ const photo = req.body.photo;
  const user = req.body.user;
  const location = req.body.location;
  const date = req.body.date;
