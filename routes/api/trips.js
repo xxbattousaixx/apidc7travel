@@ -45,7 +45,7 @@ router.route('/').post( upload.single('photo'),(req, res) => {
  const value = req.body.value;
  const quality = req.body.quality;
  const departing = req.body.departing;
- const fileName = req.body.filename
+ const fileName = req.file.filename
  const tripData = {
   photo,
   user,
@@ -102,7 +102,7 @@ router.get('/', (req, res) => {
 // @route GET api/trips/:id
 // @description Update trip
 // @access Public
-router.put('/:id', (req, res) => {
+router.route('/:id').put(upload.single('photo'), (req, res) => {
   Trip.findByIdAndUpdate(req.params.id, req.body)
     .then(trip => res.json({ msg: 'Updated successfully' }))
     .catch(err =>
