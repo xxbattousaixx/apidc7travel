@@ -103,7 +103,7 @@ router.get('/', (req, res) => {
 // @route GET api/trips/:id
 // @description Update trip
 // @access Public
-router.route('/:id').put( upload2.single('photo'), (req, res) => {
+router.route('/:id').put( upload.single('photo'), (req, res) => {
   const photo = req.body.photo;
  const user = req.body.user;
  const location = req.body.location;
