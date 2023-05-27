@@ -103,7 +103,27 @@ router.get('/', (req, res) => {
 // @description Update trip
 // @access Public
 router.put('/:id', upload.single('photo'), (req, res) => {
-  Trip.findByIdAndUpdate(req.params.id, req.body)
+  const photo = req.body.photo;
+ const user = req.body.user;
+ const location = req.body.location;
+ const date = req.body.date;
+ const notes = req.body.notes;
+ const value = req.body.value;
+ const quality = req.body.quality;
+ const departing = req.body.departing;
+ const fileName = req.file.filename
+ const tripData = {
+  photo,
+  user,
+  location,
+  date,
+  notes,
+  value,
+  quality,
+  departing,
+  fileName
+ }
+  Trip.findByIdAndUpdate(req.params.id, tripData)
     .then(trip => res.json({ msg: 'Updated successfully' }))
     .catch(err =>
       res.status(400).json({ error: 'Unable to update the Database' })
