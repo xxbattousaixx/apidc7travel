@@ -46,7 +46,6 @@ router.route('/').post( upload.single('photo'),(req, res) => {
  const value = req.body.value;
  const quality = req.body.quality;
  const departing = req.body.departing;
- const fileName =  '';
  const fileName =  req.file.filename;
  const tripData = {
   photo,
