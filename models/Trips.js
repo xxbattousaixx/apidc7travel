@@ -29,6 +29,8 @@ const TripSchema = new mongoose.Schema({
 
   }, fileName: {
     type: String,
+    default: ''
+
 
   },
   updated_date: {
