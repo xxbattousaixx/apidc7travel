@@ -55,7 +55,6 @@ router.route('/').post( upload.single('photo'),(req, res) => {
   age,
   gender,
   bio,
-  trips,
   fileName
  }
   Profile.create(profileData)
@@ -111,7 +110,6 @@ router.route('/:id').put( upload.single('photo'), (req, res) => {
  const bio = req.body.notes;
  const username = req.body.value;
  const gender = req.body.quality;
- const trips = req.body.departing;
  const fileName = req.file.filename
  const profileData = {
   photo,

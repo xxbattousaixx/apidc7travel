@@ -18,12 +18,12 @@ app.use(cors());
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-app.get('/api/trips', (req, res) => res.send('Hello world!'));
-app.get('/api/profiles', (req, res) => res.send('Hello world 2!'));
+app.get('/api/trips', (req, res) => res.send('Hello world Trips!'));
+app.get('/api/profiles', (req, res) => res.send('Hello world Profiles!'));
 
 // use Routes
-app.use('/trips', tripsRouter);
-app.use('/profiles', profilesRouter);
+app.use('/', tripsRouter);
+app.use('/', profilesRouter);
 
 
 const port = 3100;
