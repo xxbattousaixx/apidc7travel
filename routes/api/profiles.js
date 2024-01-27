@@ -33,13 +33,9 @@ const router = express.Router();
 // app.use(cors());
 // app.use(express.json());
 let upload = multer({storage, fileFilter });
-
 // routes/api/profiles.js
-
-
-router.route('/').post( upload.single('photo'),(req, res) => {
+router.route('/profiles').post( upload.single('photo'),(req, res) => {
  const photo = req.body.photo;
- const userid = req.body.userid;
  const username = req.body.username;
 
  const location = req.body.location;
@@ -49,7 +45,6 @@ router.route('/').post( upload.single('photo'),(req, res) => {
  const fileName =  req.file.filename;
  const profileData = {
   photo,
-  userid,
   username,
   location,
   age,
@@ -58,58 +53,54 @@ router.route('/').post( upload.single('photo'),(req, res) => {
   fileName
  }
   Profile.create(profileData)
-    .then(trip => res.json({ msg: 'Profile added successfully' }))
+    .then(profile => res.json({ msg: 'Profile added successfully' }))
     .catch(err => res.status(400).json({ error: 'Unable to add this profile' }));
 });
-
-router.route('/rec').get((req,res)=>{
+router.route('/profiles/rec/').get((req,res)=>{
   Profile.find()
-  .then(trip => res.json(trip))
+  .then(profile => res.json(profile))
   .catch(err=>res.status(400).json('Error: ' + err));
 })
-// @route GET api/trips/test
-// @description tests trips route
+// @route GET api/profiles/test
+// @description tests profiles route
 // @access Public
-router.get('/test', (req, res) => res.send('profile route testing!'));
-
-// @route GET api/trips
-// @description Get all trips
+router.get('/profiles/test/', (req, res) => res.send('profile route testing!'));
+// @route GET api/profiles
+// @description Get all profiles
 // @access Public
-router.get('/', (req, res) => {
+router.get('/profiles/', (req, res) => {
   Profile.find()
     .then(profiles => res.json(profiles))
-    .catch(err => res.status(404).json({ notripsfound: 'No Profiles found' }));
+    .catch(err => res.status(404).json({ noprofilesfound: 'No Profiles found' }));
 });
-
-// @route GET api/trips/:id
-// @description Get single trip by id
+// @route GET api/profiles/:id
+// @description Get single profile by id
 // @access Public
-router.get('/:id', (req, res) => {
+router.get('/profiles/:id', (req, res) => {
   Profile.findById(req.params.id)
-    .then(trip => res.json(trip))
-    .catch(err => res.status(404).json({ notripfound: 'No Profile found' }));
+    .then(profile => res.json(profile))
+    .catch(err => res.status(404).json({ noprofilefound: 'No Profile found' }));
 });
-
-// @route GET api/trips
-// @description add/save trip
+// @route GET api/profiles
+// @description add/save profile
 // @access Public
-router.get('/', (req, res) => {
+router.get('/profiles/', (req, res) => {
   Profile.find()
     .then(profiles => res.json(profiles))
     .catch(err => res.status(404).json({ noprofilesfound: 'No Profiles found' }));
 });
 
-// @route GET api/trips/:id
-// @description Update trip
+// @route GET api/profiles/:id
+// @description Update profile
 // @access Public
-router.route('/:id').put( upload.single('photo'), (req, res) => {
+router.route('/profiles/:id').put( upload.single('photo'), (req, res) => {
   const photo = req.body.photo;
- const userid = req.body.user;
+  
  const location = req.body.location;
- const age = req.body.date;
- const bio = req.body.notes;
- const username = req.body.value;
- const gender = req.body.quality;
+ const age = req.body.age;
+ const bio = req.body.bio;
+ const username = req.body.username;
+ const gender = req.body.gender;
  const fileName = req.file.filename
  const profileData = {
   photo,
@@ -117,7 +108,6 @@ router.route('/:id').put( upload.single('photo'), (req, res) => {
   location,
   age,
   bio,
-  userid,
   gender,
   fileName
  }
@@ -131,7 +121,7 @@ router.route('/:id').put( upload.single('photo'), (req, res) => {
 // @route GET api/profiles/:id
 // @description Delete profile by id
 // @access Public
-router.delete('/:id', (req, res) => {
+router.delete('/profiles/:id', (req, res) => {
   Profile.findByIdAndRemove(req.params.id, req.body)
     .then(profile => res.json({ mgs: 'Profile entry deleted successfully' }))
     .catch(err => res.status(404).json({ error: 'No such a profile' }));

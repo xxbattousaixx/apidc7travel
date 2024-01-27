@@ -25,8 +25,8 @@ app.use(cors());
 app.use(express.json({ extended: false }));
 
 // use Routes
-app.use("/trips",tripsRouter) 
-app.use("/profiles",profilesRouter) 
+app.use("/",tripsRouter) 
+app.use("/",profilesRouter) 
 
 
 

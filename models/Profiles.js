@@ -15,7 +15,9 @@ const ProfileSchema = new mongoose.Schema({
   bio: {
     type: String,
   },
-
+  id:{
+    type: Number,
+  },
   gender: {
     type: String
   },
