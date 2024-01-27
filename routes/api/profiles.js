@@ -77,7 +77,7 @@ router.get('/test', (req, res) => res.send('profile route testing!'));
 // @access Public
 router.get('/', (req, res) => {
   Profile.find()
-    .then(trips => res.json(trips))
+    .then(profiles => res.json(profiles))
     .catch(err => res.status(404).json({ notripsfound: 'No Profiles found' }));
 });
 
@@ -95,8 +95,8 @@ router.get('/:id', (req, res) => {
 // @access Public
 router.get('/', (req, res) => {
   Profile.find()
-    .then(trips => res.json(trips))
-    .catch(err => res.status(404).json({ notripsfound: 'No Profiles found' }));
+    .then(profiles => res.json(profiles))
+    .catch(err => res.status(404).json({ noprofilesfound: 'No Profiles found' }));
 });
 
 // @route GET api/trips/:id
@@ -119,7 +119,6 @@ router.route('/:id').put( upload.single('photo'), (req, res) => {
   bio,
   userid,
   gender,
-  trips,
   fileName
  }
   Profile.findByIdAndUpdate(req.params.id, profileData)

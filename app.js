@@ -10,20 +10,24 @@ const tripsRouter = require('./routes/api/trips');
 const profilesRouter = require('./routes/api/profiles');
 
 // Connect Database
+
+app.get('/api/trips', (req, res) => res.send('Hello world Trips!'));
+app.get('/api/profiles', (req, res) => res.send('Hello world Profiles!'));
+
 connectDB();
 app.use('/images', express.static('images'));
+
+
 // cors
 app.use(cors());
 
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-app.get('/api/trips', (req, res) => res.send('Hello world Trips!'));
-app.get('/api/profiles', (req, res) => res.send('Hello world Profiles!'));
-
 // use Routes
-app.use('/', tripsRouter);
-app.use('/', profilesRouter);
+app.use("/trips",tripsRouter) 
+app.use("/profiles",profilesRouter) 
+
 
 
 const port = 3100;

@@ -26,10 +26,6 @@ const ProfileSchema = new mongoose.Schema({
     type: String,
 
   }, 
-  trips:{
-    type: Array,
-    default: []
-  },
   fileName: {
     type: String,
     default: ''
