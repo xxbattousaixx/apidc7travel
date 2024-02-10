@@ -3,9 +3,6 @@
 const mongoose = require('mongoose');
 
 const ProfileSchema = new mongoose.Schema({
-  userid: {
-    type: Number,
-  },
   username: {
     type: String,
   },

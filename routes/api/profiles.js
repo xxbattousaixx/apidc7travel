@@ -45,7 +45,6 @@ router.route('/profiles').post( upload.single('photo'),(req, res) => {
  const fileName =  req.file.filename;
  const profileData = {
   photo,
-  userid,
   username,
   location,
   age,
@@ -96,7 +95,6 @@ router.get('/profiles/', (req, res) => {
 // @access Public
 router.route('/profiles/:id').put( upload.single('photo'), (req, res) => {
   const photo = req.body.photo;
-  const userid = req.body.userid;
  const location = req.body.location;
  const age = req.body.age;
  const bio = req.body.bio;
@@ -109,11 +107,10 @@ router.route('/profiles/:id').put( upload.single('photo'), (req, res) => {
   location,
   age,
   bio,
-  userid,
   gender,
   fileName
  }
-  Profile.findByIdAndUpdate(req.params.userid, profileData)
+  Profile.findByIdAndUpdate(req.params.id, profileData)
     .then(profile => res.json({ msg: 'Updated successfully' }))
     .catch(err =>
       res.status(400).json({ error: 'Unable to update the Database' })
