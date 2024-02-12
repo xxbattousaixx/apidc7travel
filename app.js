@@ -11,8 +11,8 @@ const profilesRouter = require('./routes/api/profiles');
 
 // Connect Database
 
-app.get('/api/trips', (req, res) => res.send('Hello world Trips!'));
-app.get('/api/profiles', (req, res) => res.send('Hello world Profiles!'));
+app.get('/api/trips', (req, res) => res.sendFile(path.join(__dirname, '/index.html')));
+app.get('/api/profiles', (req, res) => res.sendFile(path.join(__dirname, '/index.html')));
 
 connectDB();
 app.use('/images', express.static('images'));
