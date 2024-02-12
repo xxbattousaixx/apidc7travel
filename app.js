@@ -13,7 +13,13 @@ const profilesRouter = require('./routes/api/profiles');
 
 app.get('/api/trips', (req, res) => res.send('Hello world Trips!'));
 app.get('/api/profiles', (req, res) => res.send('Hello world Profiles!'));
-
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, '/index.html'), function(err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
+  });
 connectDB();
 app.use('/images', express.static('images'));
 
