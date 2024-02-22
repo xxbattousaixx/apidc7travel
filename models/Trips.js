@@ -12,6 +12,9 @@ const TripSchema = new mongoose.Schema({
   user: {
     type: String,
   },
+  userid: {
+    type: String,
+  },
   date: {
     type: Date,
   },

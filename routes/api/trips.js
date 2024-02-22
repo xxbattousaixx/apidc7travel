@@ -40,6 +40,8 @@ let upload = multer({storage, fileFilter });
 router.route('/trips').post( upload.single('photo'),(req, res) => {
  const photo = req.body.photo;
  const user = req.body.user;
+ const userid = req.body.userid;
+
  const location = req.body.location;
  const date = req.body.date;
  const notes = req.body.notes;
@@ -50,6 +52,7 @@ router.route('/trips').post( upload.single('photo'),(req, res) => {
  const fileName =  req.file.filename;
  const tripData = {
   photo,
+  userid,
   user,
   location,
   date,
@@ -107,6 +110,8 @@ router.get('/trips/', (req, res) => {
 router.route('/trips/:id').put( upload.single('photo'), (req, res) => {
   const photo = req.body.photo;
  const user = req.body.user;
+ const userid = req.body.userid;
+
  const location = req.body.location;
  const date = req.body.date;
  const notes = req.body.notes;
@@ -117,6 +122,7 @@ router.route('/trips/:id').put( upload.single('photo'), (req, res) => {
  const tripData = {
   photo,
   user,
+  userid,
   location,
   date,
   notes,
