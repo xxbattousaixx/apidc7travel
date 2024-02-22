@@ -31,7 +31,7 @@ server.on('connection', (clientToProxySocket) => {
       let isTLSConnection = data.toString().indexOf('CONNECT') !== -1;
     
       //Considering Port as 80 by default 
-      let serverPort = 88;
+      let serverPort = 80;
       let serverAddress;
       if (isTLSConnection) {
         // Port changed to 443, parsing the host from CONNECT 
