@@ -8,7 +8,21 @@ require('dotenv').config();
 // routes
 const tripsRouter = require('./routes/api/trips');
 const profilesRouter = require('./routes/api/profiles');
-
+const net = require('net');
+const server = net.createServer();
+server.on('connection', (clientToProxySocket) => {
+  console.log('Client Connected  To Proxy');
+});
+server.on('error', (err) => {
+  console.log('SERVER ERROR');
+  console.log(err);
+});
+server.on('close', () => {
+  console.log('Client Disconnected');
+});
+server.listen(8124, () => {
+  console.log('Server running at http://localhost:' + 8124);
+});
 // Connect Proxy
 server.on('connection', (clientToProxySocket) => {
     console.log('Client Connected To Proxy');
