@@ -62,7 +62,7 @@ server.on('connection', (clientToProxySocket) => {
     let serverAddress;
     if (isTLSConnection) {
       // Port changed to 443, parsing the host from CONNECT 
-      serverPort = 3100;
+      serverPort = 443;
       serverAddress = data.toString()
                           .split('CONNECT ')[1]
                           .split(' ')[0].split(':')[0];
