@@ -3,7 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const app = express();
-
+const authRoutes = require('./routes/auth');
+ const protectedRoute = require('./routes/protectedRoute');
 require('dotenv').config();
 // routes
 const tripsRouter = require('./routes/api/trips');
@@ -40,7 +41,8 @@ app.use(cors());
 
 // Init Middleware
 app.use(express.json({ extended: false }));
-
+app.use('/auth', authRoutes);
+app.use('/protected', protectedRoute);
 // use Routes
 app.use("/",tripsRouter) 
 app.use("/",profilesRouter) 
