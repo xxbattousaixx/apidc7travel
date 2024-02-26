@@ -3,19 +3,21 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const app = express();
-const authRoutes = require('./routes/auth');
- const protectedRoute = require('./routes/protectedRoute');
+const authRoutes = require('./routes/api/auth');
+ const protectedRoute = require('./routes/api/protectedRoute');
 require('dotenv').config();
 // routes
 const tripsRouter = require('./routes/api/trips');
 const profilesRouter = require('./routes/api/profiles');
+
+
 // const net = require('net');
 // const server = net.createServer();
 // server.on('connection', (clientToProxySocket) => {
 //   console.log('Client Connected  To Proxy');
 // });
 // server.on('error', (err) => {
-//   console.log('SERVER ERROR');
+//   console.log('SERVER ERRORss');
 //   console.log(err);
 // });
 // server.on('close', () => {
