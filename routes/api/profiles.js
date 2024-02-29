@@ -37,6 +37,7 @@ let upload = multer({storage, fileFilter });
 router.route('/profiles').post( upload.single('photo'),(req, res) => {
  const photo = req.body.photo;
  const username = req.body.username;
+ const active = true;
 
  const location = req.body.location;
  const age = req.body.age;
@@ -49,6 +50,7 @@ router.route('/profiles').post( upload.single('photo'),(req, res) => {
   location,
   age,
   gender,
+  active,
   bio,
   fileName
  }
@@ -96,6 +98,7 @@ router.get('/profiles/', (req, res) => {
 router.route('/profiles/:id').put( upload.single('photo'), (req, res) => {
   const photo = req.body.photo;
  const location = req.body.location;
+ const active = true;
  const age = req.body.age;
  const bio = req.body.bio;
  const username = req.body.username;
@@ -105,6 +108,7 @@ router.route('/profiles/:id').put( upload.single('photo'), (req, res) => {
   photo,
   username,
   location,
+  active,
   age,
   bio,
   gender,

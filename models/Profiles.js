@@ -25,6 +25,10 @@ const ProfileSchema = new mongoose.Schema({
     type: String,
 
   }, 
+ æctive: {
+    type: Boolean,
+
+  }, 
   fileName: {
     type: String,
     default: ''
