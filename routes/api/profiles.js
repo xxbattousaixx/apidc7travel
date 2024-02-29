@@ -37,7 +37,7 @@ let upload = multer({storage, fileFilter });
 router.route('/profiles').post( upload.single('photo'),(req, res) => {
  const photo = req.body.photo;
  const username = req.body.username;
- const active = true;
+ const active = req.body.active;
 
  const location = req.body.location;
  const age = req.body.age;
