@@ -99,6 +99,7 @@ router.route('/profiles/:id').put( upload.single('photo'), (req, res) => {
   const photo = req.body.photo;
  const location = req.body.location;
  const active = req.body.active;
+ 
  const age = req.body.age;
  const bio = req.body.bio;
  const username = req.body.username;
