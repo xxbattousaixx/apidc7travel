@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
  username: { type: String, unique: true, required: true },
  password: { type: String, required: true },
  active: { type: String, required: true, default: false  },
- id:{type:String, required:true, default:''}
+ id:{type:Number, required:true}
  
  });
 module.exports = mongoose.model('User', userSchema);
